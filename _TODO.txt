@@ -1,0 +1,28 @@
+theme provider
+https://styled-components.com/docs/advanced
+
+
+hover to focus
+        ref={this.inputRef}
+        placeholder="Hover to focus!"
+        onMouseEnter={() => {
+          this.inputRef.current.focus()
+        }}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

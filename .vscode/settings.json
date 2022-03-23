@@ -1,0 +1,18 @@
+{
+    "files.exclude": {
+        "**.gitignore": true,
+        "**package-lock.json": true,
+        "**node_modules": true,
+        "**build": true,
+        // "**public": true,
+        // // "**package.json": true,
+        // "**.env": true,
+
+        "**src/setupTests.js": true,
+
+        "**src/*.test.js": true,
+
+        "**src/index.js": true,
+        "**README.md": true,
+    },
+}
