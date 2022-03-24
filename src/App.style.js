@@ -2,15 +2,13 @@ import styled from 'styled-components';
 
 // const first_color = "#8875FF";
 
-export const Nav = styled.nav`
+export const Header = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    box-sizing: border-box;
     width: 100%;
     height: 60px;
     padding: 10px;
-
     background-color: rgba(255,255,255,0.05);
 
     /* @media (max-width: 768px) {
@@ -19,7 +17,7 @@ export const Nav = styled.nav`
 `;
 
 
-export const Content = styled.div`
+export const Wrapper = styled.div`
     width: 100vw;
     height: 100vh;
     
@@ -32,7 +30,7 @@ export const Content = styled.div`
 `;
 
 export const Main = styled.div`
-    display:flex;
+    /* display:flex; */
 `;
 
 export const SvgContainer = styled.div`

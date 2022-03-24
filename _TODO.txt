@@ -9,7 +9,7 @@ hover to focus
           this.inputRef.current.focus()
         }}
 
-
+More correct way to insert SVG?
 
 
 

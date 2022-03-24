@@ -1,7 +1,13 @@
 import { createGlobalStyle } from 'styled-components';
 
 const GlobalStyle = createGlobalStyle`
-    * {
+    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+
+    html {
+        box-sizing: border-box;
+    }
+
+    *, *::after, *::before {
         margin: 0;
         font-family: 'Lato', sans-serif;
         -webkit-font-smoothing: antialiased;
@@ -9,6 +15,7 @@ const GlobalStyle = createGlobalStyle`
 
         font-size: 16px;
         color: #ffffff;
+        box-sizing: inherit;
     }
 `;
 
