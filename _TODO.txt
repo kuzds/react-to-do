@@ -11,7 +11,7 @@ hover to focus
 
 More correct way to insert SVG?
 
-
+Фон анимировать
 
 
 
