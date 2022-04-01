@@ -11,18 +11,19 @@ hover to focus
 
 More correct way to insert SVG?
 
-Фон анимировать
+button to github
+
+
+https://monsterlessons.com/project/categories/react
 
 
 
 
 
 
-
-
-
-
-
-
+https://max-frontend.gitbook.io/react-router-course-ru/podklyuchaem_react-router/browserhistory_vs_hashhistory
+hashHistory for routing
+IndexRoute ?
+<Route path='*' component={NotFound} />
 
 

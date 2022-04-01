@@ -80,20 +80,7 @@ export const Logo = styled.div`
 `;
 
 
-export const Button = styled.button`
-    background-color: ${props => props.theme.firstColor};
-    border: none;
-    border-radius: 4px;
-    color: #FFF;
-    padding: 11px 20px;
 
-    font-size: 18px;
-    font-weight: 00;
-    cursor: pointer;
-    &:hover {
-        background-color: ${props => props.theme.firstColorLight};
-    }
-`;
 
 export const SliderEl = styled.div`
     display: flex;

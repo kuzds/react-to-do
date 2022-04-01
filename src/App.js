@@ -3,11 +3,13 @@ import { useSelector }                                      from 'react-redux';
 
 
 
-import GlobalStyle                                          from './GlobalStyle';
-import { ThemeProvider } from 'styled-components';
+
+import { ThemeProvider }                                    from 'styled-components';
 
 import { Wrapper, Container, Header, 
-    Main, Svg, Logo, Button, SliderEl }                     from './App.style';
+    Main, Svg, Logo, SliderEl }                             from './App.style';
+
+import Button                                               from './components/Button'
 import SimpleSlider                                         from './components/SimpleSlider'
 
 const theme = {
@@ -20,7 +22,6 @@ const theme = {
 function App(props){
 
     return (<>
-        <GlobalStyle/>
         <ThemeProvider theme={theme}>
             <Wrapper>
                 <Container>
@@ -29,7 +30,8 @@ function App(props){
                             <Svg src="logo.svg"/>
                             <span>UpTodo</span>
                         </Logo>
-                        <Button>LOGIN</Button>
+                        <Link to="/login"><Button>LOGIN</Button></Link>
+                        
                     </Header>
                     <Main>
                         <SimpleSlider>
