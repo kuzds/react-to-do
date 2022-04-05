@@ -1,16 +1,10 @@
-import React, { useState, useEffect }                       from 'react';
-import { useSelector }                                      from 'react-redux';
+import React from 'react';
 
+import { ThemeProvider } from 'styled-components';
+import GlobalStyle from './GlobalStyle';
+import AppRoutes from './routes/Routes';
 
-
-
-import { ThemeProvider }                                    from 'styled-components';
-
-import { Wrapper, Container, Header, 
-    Main, Svg, Logo, SliderEl }                             from './App.style';
-
-import Button                                               from './components/Button'
-import SimpleSlider                                         from './components/SimpleSlider'
+import Wrapper from './components/Wrapper';
 
 const theme = {
     firstColor: "hsl(248, 100%, 73%)",
@@ -20,39 +14,11 @@ const theme = {
 
 
 function App(props){
-
     return (<>
+        <GlobalStyle/>
         <ThemeProvider theme={theme}>
             <Wrapper>
-                <Container>
-                    <Header>
-                        <Logo>
-                            <Svg src="logo.svg"/>
-                            <span>UpTodo</span>
-                        </Logo>
-                        <Link to="/login"><Button>LOGIN</Button></Link>
-                        
-                    </Header>
-                    <Main>
-                        <SimpleSlider>
-                        <SliderEl>
-                            <Svg src="picture/intro1.svg"/>
-                            <h2>Manage your tasks</h2>
-                            <span>You can easily manage all of your daily tasks in DoMe for free</span>
-                        </SliderEl>
-                        <SliderEl>
-                            <Svg src="picture/intro2.svg"/>
-                            <h2>Create daily routine</h2>
-                            <span>In Uptodo  you can create your personalized routine to stay productive </span>
-                        </SliderEl>
-                        <SliderEl>
-                            <Svg src="picture/intro3.svg"/>
-                            <h2>Orgonaize your tasks</h2>
-                            <span>You can organize your daily tasks by adding your tasks into separate categories</span>
-                        </SliderEl>
-                        </SimpleSlider>
-                    </Main>
-                </Container>
+                <AppRoutes />
             </Wrapper>
         </ThemeProvider>
     </>);

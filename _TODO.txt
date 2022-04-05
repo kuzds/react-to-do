@@ -21,9 +21,18 @@ https://monsterlessons.com/project/categories/react
 
 
 
-https://max-frontend.gitbook.io/react-router-course-ru/podklyuchaem_react-router/browserhistory_vs_hashhistory
-hashHistory for routing
-IndexRoute ?
-<Route path='*' component={NotFound} />
+Spiner for Loading
+
+
+
+
+
+
+
+
+
+
+
+
 
 

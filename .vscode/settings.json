@@ -2,17 +2,22 @@
     "files.exclude": {
         "**.gitignore": true,
         "**package-lock.json": true,
-        // "**node_modules": true,
+        "**node_modules": true,
         "**build": true,
+        "**backend": true,
         // "**public": true,
-        // // "**package.json": true,
+        // "**package.json": true,
         // "**.env": true,
 
         "**src/setupTests.js": true,
 
         "**src/*.test.js": true,
 
-        // "**src/index.js": true,
+        "**src/index.js": true,
         "**README.md": true,
+        // "**_TODO.txt": true,
+
+        "src/hooks": true,
+        "src/contexts": true,
     },
 }
