@@ -1,7 +1,8 @@
 import React from 'react';
 
-import { ThemeProvider } from 'styled-components';
-import GlobalStyle from './GlobalStyle';
+import { ThemeProvider } from '@emotion/react'
+import GlobalStyles from './GlobalStyle';
+import { Global } from "@emotion/react";
 import AppRoutes from './routes/Routes';
 
 import Wrapper from './components/Wrapper';
@@ -15,7 +16,7 @@ const theme = {
 
 function App(props){
     return (<>
-        <GlobalStyle/>
+        <Global styles={GlobalStyles}/>
         <ThemeProvider theme={theme}>
             <Wrapper>
                 <AppRoutes />

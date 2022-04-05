@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import { css } from "@emotion/react";
 
-const GlobalStyle = createGlobalStyle`
+const GlobalStyles = css`
     @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
 
     html {
@@ -22,4 +22,4 @@ const GlobalStyle = createGlobalStyle`
     }
 `;
 
-export default GlobalStyle;
+export default GlobalStyles;

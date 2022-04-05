@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from '@emotion/styled/macro'
 
-export default styled.button`
+const Button = styled.button`
     background-color: ${props => props.theme.firstColor};
     border: none;
     border-radius: 4px;
@@ -14,3 +14,5 @@ export default styled.button`
         background-color: ${props => props.theme.firstColorLight};
     }
 `;
+
+export default Button;
