@@ -4,7 +4,6 @@ import useAuth from "../../../hooks/useAuth";
 function GuestRoute({ children, ...rest }) {
   const auth = useAuth();
   const location = useLocation();
-  console.log(location);
   const url = new URLSearchParams(location.search.slice(1));
 
   return auth.user ? <Navigate to={url.get("redirect") || "/"} /> : children;

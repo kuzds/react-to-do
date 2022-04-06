@@ -1,7 +1,8 @@
 import { css } from "@emotion/react";
 
 const GlobalStyles = css`
-    @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap");
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+    ${'' /* @import url("https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"); */}
 
     html {
         box-sizing: border-box;
@@ -12,6 +13,7 @@ const GlobalStyles = css`
     }
     *, *::after, *::before {
         margin: 0;
+        font-family: 'Roboto', sans-serif;
         font-family: 'Lato', sans-serif;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
