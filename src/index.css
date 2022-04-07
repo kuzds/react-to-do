@@ -1,0 +1,27 @@
+/* @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap'); */
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/icon?family=Material+Icons');
+
+body {
+    margin: 0;
+    /* font-family: 'Lato', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale; */
+}
+
+/* html {
+    box-sizing: border-box;
+}
+
+*, *::after, *::before {
+    margin: 0;
+
+    box-sizing: inherit;
+} */
+
+.testColors {
+    color: #563dfa;
+    color: #3c2fe9;
+}
