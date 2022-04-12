@@ -2,24 +2,24 @@ import React from "react";
 
 import { 
     Logo,
-    Container, 
-    Header, 
     Main,
     SliderEl 
 } from './Home.style';
+import Container from '../../components/Container';
+import Header from '../../components/Header';
+
 import Button from '@mui/material/Button';
 import SimpleSlider from '../../components/SimpleSlider'
 
-import FactCheckIcon from '@mui/icons-material/FactCheck';
-import { Typography } from '@mui/material';
+import { Link, useNavigate } from "react-router-dom";
+
+
 function Home(props) {
 
     return (
         <Container>
             <Header>
-                <FactCheckIcon color="primary" sx={{ fontSize: 48 }}/>
-                <Typography variant="h4" color="primary">ToDo</Typography>;
-                <Button variant="contained">LOGIN</Button>
+                <Button variant="contained" component={Link} to="/login">LOGIN</Button>
                 
             </Header>
             <Main>
