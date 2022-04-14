@@ -2,15 +2,20 @@ import React, {useState} from "react";
 import Container from '../../components/Container';
 import Header from '../../components/Header';
 
-import { Typography, Grid, TextField } from '@mui/material';
+import { 
+    Button,
+    Typography, 
+    Grid, 
+    TextField 
+} from '@mui/material';
 
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./validation";
 import api from "../../services/api";
 import useAuth from "../../hooks/useAuth";
-
-function Login(props) {
+import { Link } from "react-router-dom";
+function Login() {
     const [isLoading, setIsLoading] = useState(false); 
     const auth = useAuth();
 
@@ -50,7 +55,7 @@ function Login(props) {
         <Header></Header>
         <Typography variant="h6" color="text.primary">Login</Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container spacing={3}>
+            <Grid container >
                 <Grid items xs={12}>
                     <Controller
                         name="email"
@@ -69,12 +74,45 @@ function Login(props) {
                         )}
 
                     />
-
                 </Grid>
-
+                <Grid item xs={12}>
+                    <Controller
+                        name="password"
+                        control={control}
+                        defaultValue=""
+                        render={({field}) => (
+                            <TextField
+                                {...field}
+                                error={Boolean(errors.password?.message)}
+                                type="password"
+                                fullWidth={true}
+                                label="Password"
+                                variant="filled"
+                                helperText={errors.password?.message}
+                            />
+                        )}
+                    />
+                </Grid>
+                <Grid item xs={12}>
+                    <Button
+                        variant="contained"
+                        color="primary"
+                        type="submit"
+                        disabled={isLoading}
+                    >
+                    Login
+                    </Button>
+                    <Button
+                        color="inherit"
+                        type="submit"
+                        component={Link}
+                        to="/registration"
+                    >
+                    Create an account
+                    </Button>
+                </Grid>
             </Grid>
         </form>
-
     </Container>
     );
 } 

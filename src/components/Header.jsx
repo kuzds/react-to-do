@@ -11,8 +11,8 @@ const Header_ = styled.div`
     box-sizing: border-box;
     width: 100%;
     
-    height: 60px;
-    padding: 0 10px;
+    /* height: 60px;
+    padding: 0 10px; */
 
     a {
         margin-left: auto;

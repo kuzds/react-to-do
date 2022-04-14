@@ -10,11 +10,14 @@ const darkTheme = createTheme({
         mode: 'dark',
         primary: {
           main: '#0082ff',
-        }
-      },
+        },
+        background: {
+            paper: '#303030',
+        },
+    },
 });
 
-function App(props){
+function App(){
     return (<>
         <ThemeProvider theme={darkTheme}>
             <Wrapper>
