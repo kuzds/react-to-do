@@ -56,7 +56,7 @@ function Login() {
         <Typography variant="h6" color="text.primary">Login</Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container >
-                <Grid items xs={12}>
+                <Grid item xs={12}>
                     <Controller
                         name="email"
                         control={control}

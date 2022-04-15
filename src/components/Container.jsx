@@ -5,7 +5,8 @@ export default styled.div`
     height: 100%;
     
     padding: 20px 10px;
-    background-color: ${props => props.theme.palette.background.paper};
+    /* background-color: ${props => props.theme.palette.background.paper}; */
+    background-color: rgba(0,0,0,0.8);
 
     @media (min-width: 485px) {
         border-radius: 16px;
