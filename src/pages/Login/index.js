@@ -51,8 +51,9 @@ function Login() {
 
 
     return (
-    <Container>
-        <Header></Header>
+    <>
+    {/* <Container> */}
+        <Header/>
         <Typography variant="h6" color="text.primary">Login</Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
             <Grid container >
@@ -113,7 +114,8 @@ function Login() {
                 </Grid>
             </Grid>
         </form>
-    </Container>
+    {/* </Container> */}
+    </>
     );
 } 
 

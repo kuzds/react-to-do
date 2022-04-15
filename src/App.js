@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
 import AppRoutes from './routes/Routes';
 import Wrapper from './components/Wrapper';
 
@@ -16,13 +16,13 @@ const darkTheme = createTheme({
         },
     },
 });
-
+// darkTheme = responsiveFontSizes(darkTheme);
 function App(){
     return (<>
         <ThemeProvider theme={darkTheme}>
-            <Wrapper>
+            {/* <Wrapper> */}
                 <AppRoutes />
-            </Wrapper>
+            {/* </Wrapper> */}
         </ThemeProvider>
     </>);
 }
