@@ -9,22 +9,18 @@ import {
     Container
 } from '@mui/material';
 
-import Header from '../../components/Header';
 import { LoremIpsum } from 'react-lorem-ipsum';
 import { Link, useNavigate } from "react-router-dom";
 
 
-function Home(props) {
+function Home() {
 
     return (
-        <div>
-            <Header>
-                <Button variant="contained" component={Link} to="/login">LOGIN</Button>
-            </Header>
-            <Container maxWidth="md">
-                <LoremIpsum p={2} />
-            </Container>
-        </div>
+    <>
+        <Container maxWidth="md">
+            <LoremIpsum p={5} />
+        </Container>
+    </>
     );
 } 
 

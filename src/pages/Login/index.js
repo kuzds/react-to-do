@@ -1,12 +1,11 @@
 import React, {useState} from "react";
-import Container from '../../components/Container';
-import Header from '../../components/Header';
 
 import { 
     Button,
     Typography, 
     Grid, 
-    TextField 
+    TextField,
+    Container
 } from '@mui/material';
 
 import { useForm, Controller } from "react-hook-form";
@@ -15,6 +14,7 @@ import validationSchema from "./validation";
 import api from "../../services/api";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+
 function Login() {
     const [isLoading, setIsLoading] = useState(false); 
     const auth = useAuth();
@@ -51,71 +51,73 @@ function Login() {
 
 
     return (
-    <>
-    {/* <Container> */}
-        <Header/>
-        <Typography variant="h6" color="text.primary">Login</Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <Grid container >
-                <Grid item xs={12}>
-                    <Controller
-                        name="email"
-                        control={control}
-                        defaultValue=""
-                        render={({field}) => (
-                            <TextField
-                                {...field}
-                                error={Boolean(errors.email?.message)}
-                                fullWidth={true}
-                                type="email"
-                                label="Email"
-                                variant="outlined"
-                                helperText={errors.email?.message}
-                            />
-                        )}
+    <Container maxWidth="xs" sx={{padding : theme => theme.spacing(3)}}>
+      <Grid container spacing={3}>
+        <Grid item xs={12}>
+          <Typography variant="h6">Login</Typography>
+        </Grid>
+      </Grid>
+      <form onSubmit={handleSubmit(onSubmit)}>
+        <Grid container spacing={3}>
+          <Grid item xs={12}>
+            <Controller
+              name="email"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  error={Boolean(errors.email?.message)}
+                  fullWidth={true}
+                  type="email"
+                  label="Email"
+                  variant="filled"
+                  helperText={errors.email?.message}
+                />
+              )}
+            />
+          </Grid>
 
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <Controller
-                        name="password"
-                        control={control}
-                        defaultValue=""
-                        render={({field}) => (
-                            <TextField
-                                {...field}
-                                error={Boolean(errors.password?.message)}
-                                type="password"
-                                fullWidth={true}
-                                label="Password"
-                                variant="filled"
-                                helperText={errors.password?.message}
-                            />
-                        )}
-                    />
-                </Grid>
-                <Grid item xs={12}>
-                    <Button
-                        variant="contained"
-                        color="primary"
-                        type="submit"
-                        disabled={isLoading}
-                    >
-                    Login
-                    </Button>
-                    <Button
-                        color="inherit"
-                        type="submit"
-                        component={Link}
-                        to="/registration"
-                    >
-                    Create an account
-                    </Button>
-                </Grid>
-            </Grid>
-        </form>
-    {/* </Container> */}
-    </>
+          <Grid item xs={12}>
+            <Controller
+              name="password"
+              control={control}
+              defaultValue=""
+              render={({ field }) => (
+                <TextField
+                  {...field}
+                  error={Boolean(errors.password?.message)}
+                  type="password"
+                  fullWidth={true}
+                  label="Password"
+                  variant="filled"
+                  helperText={errors.password?.message}
+                />
+              )}
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button
+              variant="contained"
+              color="primary"
+              type="submit"
+              disabled={isLoading}
+            >
+              Login
+            </Button>
+            <Button
+              color="inherit"
+              type="submit"
+              xs={{marginLeft : theme => theme.spacing(1)}}
+              component={Link}
+              to="/registration"
+            >
+              Create an account
+            </Button>
+          </Grid>
+        </Grid>
+      </form>
+    </Container>
     );
 } 
 
