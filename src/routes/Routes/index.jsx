@@ -8,6 +8,11 @@ import useAuth from "../../hooks/useAuth";
 import PrivateRoute from "../components/PrivateRoute";
 import GuestRoute from "../components/GuestRoute";
 
+import { 
+    Grid,
+    Container,
+    CircularProgress 
+} from "@mui/material";
 
 function AppRoutes() {
   const auth = useAuth();
@@ -44,7 +49,13 @@ function AppRoutes() {
       <Route path="*" element={<Navigate to="/not-found-404" />} />
     </Routes>
   ) : (
-    <div>Loading...</div>
+    <Container maxWidth="md" sx={{padding: theme => theme.spacing(3)}}>
+      <Grid container spacing={3} alignItems="center" justifyContent="center">
+        <Grid item>
+          <CircularProgress color="inherit" />
+        </Grid>
+      </Grid>
+    </Container>
   );
 }
 

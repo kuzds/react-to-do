@@ -18,7 +18,7 @@ import { useState } from "react";
 function Registration() {
   const [isLoading, setIsLoading] = useState(false);
   const auth = useAuth();
-
+  
   const {
     control,
     handleSubmit,
