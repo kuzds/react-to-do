@@ -17,7 +17,7 @@
         "**README.md": true,
         // "**_TODO.txt": true,
 
-        "src/hooks": true,
+        // "src/hooks": true,
         "src/contexts": true,
     },
 }

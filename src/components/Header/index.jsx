@@ -27,8 +27,6 @@ import useThemeMode from "../../hooks/useThemeMode";
 
 import stringAvatar from "./stringAvatar";
 
-const pages = ['Pages'];
-
 const Header = () => {
     const auth = useAuth();
     const theme = useThemeMode();
@@ -62,6 +60,13 @@ const Header = () => {
         navigate("/login");
     };
 
+    const pages = auth.user ? 
+    [
+        { name: 'Myday'     , onClick: () => navigate("/tasks/myday")   }, 
+        { name: 'Planned'   , onClick: () => navigate("/tasks/planned") },
+        { name: 'Inbox'     , onClick: () => navigate("/tasks/inbox")   },
+    ] : [];
+
     const settings = auth.user ? 
     [
         {name: 'Profile'     , onClick: () => navigate("/profile")}, 
@@ -70,7 +75,7 @@ const Header = () => {
     [
         {name: 'Login'       , onClick: () => navigate("/login")}, 
         {name: 'Registration', onClick: () => navigate("/registration")}
-    ] ;
+    ];
 
     return (
         <AppBar position="static">
@@ -120,8 +125,8 @@ const Header = () => {
                         }}
                     >
                         {pages.map((page) => (
-                            <MenuItem key={page} onClick={handleCloseNavMenu}>
-                                <Typography textAlign="center">{page}</Typography>
+                            <MenuItem key={page.name} onClick={page.onClick}>
+                                <Typography textAlign="center">{page.name}</Typography>
                             </MenuItem>
                         ))}
                         <Divider/>
@@ -169,11 +174,11 @@ const Header = () => {
                 <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                     {pages.map((page) => (
                         <Button
-                            key={page}
-                            onClick={handleCloseNavMenu}
+                            key={page.name}
+                            onClick={page.onClick}
                             sx={{ my: 2, color: 'white', display: 'block' }}
                         >
-                            {page}
+                            {page.name}
                         </Button>
                     ))}
                 </Box>

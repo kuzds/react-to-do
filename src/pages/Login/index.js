@@ -68,7 +68,7 @@ function Login() {
                 <TextField
                   {...field}
                   error={Boolean(errors.email?.message)}
-                  fullWidth={true}
+                  fullWidth
                   type="email"
                   label="Email"
                   variant="filled"
@@ -88,7 +88,7 @@ function Login() {
                   {...field}
                   error={Boolean(errors.password?.message)}
                   type="password"
-                  fullWidth={true}
+                  fullWidth
                   label="Password"
                   variant="filled"
                   helperText={errors.password?.message}

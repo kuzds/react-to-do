@@ -1,14 +1,12 @@
-import { useCallback, useEffect, useMemo, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 
 import { ThemeModeContext } from "../contexts/ThemeModeContext";
 
-import { createTheme, ThemeProvider, responsiveFontSizes } from '@mui/material/styles';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
 import { 
     Box
 } from '@mui/material';
-
-// darkTheme = responsiveFontSizes(darkTheme);
 
 function ThemeModeProvider(props) {
     const [mode, setMode] = useState('dark');
@@ -22,11 +20,12 @@ function ThemeModeProvider(props) {
             palette: {
                 mode,
                 primary: {
-                  main: '#0082ff',
+                  // main: '#0082ff',
+                  main: '#1976d2',
                 },
                 background: {
-                    paper: '#424242',
-                    default: mode === 'dark' ? '#303030' : '#fff',
+                    paper: mode === 'dark' ? '#424242' : '#fff',
+                    default: mode === 'dark' ? '#303030' : '#fafafa',
                 },
             },
         }),

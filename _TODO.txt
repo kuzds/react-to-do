@@ -17,9 +17,9 @@ button to github
 https://monsterlessons.com/project/categories/react
 
 
+Запоминать в кеше текущую тему
 
-
-
+При скроле не помещается Home
 
 Spiner for Loading !!! 
 Кнопки со спинерами

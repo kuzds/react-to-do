@@ -81,7 +81,7 @@ function Profile() {
                 <TextField
                   {...field}
                   error={Boolean(errors.firstName?.message)}
-                  fullWidth={true}
+                  fullWidth
                   label="First name"
                   variant="filled"
                   helperText={errors.firstName?.message}
@@ -99,7 +99,7 @@ function Profile() {
                 <TextField
                   {...field}
                   error={Boolean(errors.lastName?.message)}
-                  fullWidth={true}
+                  fullWidth
                   label="Last name"
                   variant="filled"
                   helperText={errors.lastName?.message}

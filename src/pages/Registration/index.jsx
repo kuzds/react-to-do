@@ -18,7 +18,7 @@ import { useState } from "react";
 function Registration() {
   const [isLoading, setIsLoading] = useState(false);
   const auth = useAuth();
-  
+
   const {
     control,
     handleSubmit,
@@ -67,7 +67,7 @@ function Registration() {
                 <TextField
                   {...field}
                   error={Boolean(errors.firstName?.message)}
-                  fullWidth={true}
+                  fullWidth
                   label="First name"
                   variant="filled"
                   helperText={errors.firstName?.message}
@@ -85,7 +85,7 @@ function Registration() {
                 <TextField
                   {...field}
                   error={Boolean(errors.lastName?.message)}
-                  fullWidth={true}
+                  fullWidth
                   label="Last name"
                   variant="filled"
                   helperText={errors.lastName?.message}
@@ -103,7 +103,7 @@ function Registration() {
                 <TextField
                   {...field}
                   error={Boolean(errors.email?.message)}
-                  fullWidth={true}
+                  fullWidth
                   type="email"
                   label="Email"
                   variant="filled"
@@ -123,7 +123,7 @@ function Registration() {
                   {...field}
                   error={Boolean(errors.password?.message)}
                   type="password"
-                  fullWidth={true}
+                  fullWidth
                   label="Password"
                   variant="filled"
                   helperText={errors.password?.message}

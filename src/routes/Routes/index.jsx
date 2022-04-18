@@ -4,6 +4,7 @@ import Login from "../../pages/Login";
 import Registration from "../../pages/Registration";
 import Profile from "../../pages/Profile";
 import NotFound from "../../pages/NotFound";
+import Inbox from "../../pages/Inbox";
 import useAuth from "../../hooks/useAuth";
 import PrivateRoute from "../components/PrivateRoute";
 import GuestRoute from "../components/GuestRoute";
@@ -44,7 +45,18 @@ function AppRoutes() {
           </GuestRoute>
         }
       />
-
+      <Route
+        path="/tasks"
+        element={<Navigate to="/tasks/inbox" replace />}
+      />
+      <Route
+        path="/tasks/inbox"
+        element={
+          <PrivateRoute>
+            <Inbox />
+          </PrivateRoute>
+        }
+      />
       <Route path="/not-found-404" element={<NotFound />} />
       <Route path="*" element={<Navigate to="/not-found-404" />} />
     </Routes>
