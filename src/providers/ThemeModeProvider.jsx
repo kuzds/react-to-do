@@ -1,6 +1,6 @@
 import { useCallback, useMemo, useState } from "react";
 
-import { ThemeModeContext } from "../contexts/ThemeModeContext";
+import ThemeModeContext from "../contexts/ThemeModeContext";
 
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 

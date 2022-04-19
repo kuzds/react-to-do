@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 
-function useOutsideInactivator(ref) {
+function useClickActivator(ref) {
   const [IsActive, setIsActive] = useState(false);
 
   useEffect(() => {
@@ -21,4 +21,4 @@ function useOutsideInactivator(ref) {
   return [IsActive, setIsActive];
 }
 
-export default useOutsideInactivator;
+export default useClickActivator;

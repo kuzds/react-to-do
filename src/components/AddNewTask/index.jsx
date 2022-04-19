@@ -12,19 +12,29 @@ import {
 import IconButton from '@mui/material/IconButton';
 
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import useOutsideInactivator from "../../hooks/useOutsideInactivator";
+import useClickActivator from "../../hooks/useClickActivator";
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import EventRepeatRoundedIcon from '@mui/icons-material/EventRepeatRounded';
 
+import useTasker from "../../hooks/useTasker";
+
 function AddNewTask() {
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
-  const [isActive, setIsActive] = useOutsideInactivator(wrapperRef);
+  const [isActive, setIsActive] = useClickActivator(wrapperRef);
+  const tasker = useTasker();
 
   useEffect(() => {
     if (isActive) (inputRef.current && inputRef.current.focus());
   }, [isActive]);
+
+  const addTask = () => {
+    tasker.addTask({
+      description: inputRef.current.value
+    })
+    inputRef.current.value = '';
+  }
 
   return (
     <Grid 
@@ -32,9 +42,9 @@ function AddNewTask() {
       ref={wrapperRef}
       sx={{
         padding: theme => theme.spacing(1),
-        // paddingLeft: isActive ? '0px' : '7px',
         bgcolor: "background.paper",
         borderRadius: "4px",
+        boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)"
       }}
     >
       <Grid item xs={12}>
@@ -44,17 +54,10 @@ function AddNewTask() {
             width: "100%",
             alignItems:"center",
           }}
-        >
-        {/* {
-          isActive ? (
-            <IconButton aria-label="menu" sx={{marginLeft: "-7px"}}>
-              <AddCircleOutlineRoundedIcon />
-            </IconButton>
-          ) : ("") 
-        } */}
-          
+        >          
           <TextField 
             inputRef={inputRef}
+            autoComplete='off'
             label="New task" 
             variant="outlined" 
             fullWidth
@@ -87,18 +90,14 @@ function AddNewTask() {
                 variant="outlined"
                 color="inherit"
                 size="small"
+                onClick={addTask}
               >Add</Button>
             </Box>
           </Grid>
         ) : ("") 
       }
     </Grid>
-
-    
   );
 }
 
 export default AddNewTask;
-
-
-

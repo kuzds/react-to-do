@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { ThemeModeContext } from "../contexts/ThemeModeContext";
+import ThemeModeContext from "../contexts/ThemeModeContext";
 
 function useThemeMode() {
   return useContext(ThemeModeContext);
