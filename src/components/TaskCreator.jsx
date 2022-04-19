@@ -2,8 +2,6 @@ import React, { useEffect, useRef, useState } from "react";
 
 import { 
   Grid, 
-  Container, 
-  Typography,
   TextField,
   Button, 
   Box
@@ -12,14 +10,14 @@ import {
 import IconButton from '@mui/material/IconButton';
 
 import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import useClickActivator from "../../hooks/useClickActivator";
+import useClickActivator from "../hooks/useClickActivator";
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import EventRepeatRoundedIcon from '@mui/icons-material/EventRepeatRounded';
 
-import useTasker from "../../hooks/useTasker";
+import useTasker from "../hooks/useTasker";
 
-function AddNewTask() {
+function TaskCreator() {
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
   const [isActive, setIsActive] = useClickActivator(wrapperRef);
@@ -100,4 +98,4 @@ function AddNewTask() {
   );
 }
 
-export default AddNewTask;
+export default TaskCreator;

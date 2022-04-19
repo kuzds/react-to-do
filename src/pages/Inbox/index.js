@@ -9,30 +9,38 @@ import {
 import { useEffect } from 'react';
 
 
-import AddNewTask from '../../components/AddNewTask';
+import TaskCreator from '../../components/TaskCreator';
+import Task from '../../components/Task';
+
 import useTasker from '../../hooks/useTasker';
 
 function Inbox() {
   const tasker = useTasker();
-  useEffect(() => {
-    console.log("Inbox", tasker.tasks)
-    // console.log(tasker.tasks.map(task => task.des))
-  }, [tasker])
 
   return (
     <Container maxWidth="md" xs={{padding: theme => theme.spacing(3)}}>
-      <Grid container spacing={3}>
+      <Grid container spacing='2px'>
         <Grid item xs={12}>
           <Typography variant="h6" gutterBottom>
             All Tasks.
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <AddNewTask/>
+          <TaskCreator/>
         </Grid>
+        <Grid 
+          spacing='2px'
+          container 
+          item xs={12} 
+          sx={{
+            overflowY:"scroll", 
+            maxHeight: "600px",
+          }}
+        >
         {
-          tasker.tasks.map(task => (<Grid item xs={12} key={task.id}>{task.description}</Grid>))
+          tasker.tasks.map(task => (<Grid item xs={12} key={task.id}><Task task={task}/></Grid>))
         }
+      </Grid>
       </Grid>
     </Container>
   );

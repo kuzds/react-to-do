@@ -23,7 +23,7 @@ function TaskerProvider({children}) {
   const addTask = useCallback(task => {
     task.id = uid()
     task.completed = false
-    setTasks(prevTasks => [...prevTasks, task])
+    setTasks(prevTasks => [task, ...prevTasks])
   }, [])
 
   const toggleTaskById = useCallback(id => {

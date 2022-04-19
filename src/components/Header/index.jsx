@@ -50,6 +50,11 @@ const Header = () => {
         setAnchorElUser(null);
     };
 
+    const handleSelectNavMenu = (onClick) => () => {
+        setAnchorElNav(null);
+        onClick();
+    };
+
     const handleSelectUserMenu = (onClick) => () => {
         setAnchorElUser(null);
         onClick();
@@ -125,7 +130,7 @@ const Header = () => {
                         }}
                     >
                         {pages.map((page) => (
-                            <MenuItem key={page.name} onClick={page.onClick}>
+                            <MenuItem key={page.name} onClick={handleSelectNavMenu(page.onClick)}>
                                 <Typography textAlign="center">{page.name}</Typography>
                             </MenuItem>
                         ))}

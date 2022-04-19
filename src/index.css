@@ -2,29 +2,44 @@
 /* @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap'); */
 @import url('https://fonts.googleapis.com/icon?family=Material+Icons');
 
+html {
+  min-height: 100%; /* Look, it's not fixed anymore! */
+
+  display: flex;
+  flex-direction: column;
+}
+
 body {
-    margin: 0;
-    /* font-family: 'Lato', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale; */
+  flex-grow: 1;
+  display: flex;
+  margin: 0;
 }
-
 #root {
-    height: 100vh;
-}
-/* html {
-    box-sizing: border-box;
+  flex-grow: 1;
 }
 
-*, *::after, *::before {
-    margin: 0;
-
-    box-sizing: inherit;
-} */
 
 .testColors {
     color: #563dfa;
     color: #3c2fe9;
 }
+
+div, body {
+	scrollbar-width: thin;
+	scrollbar-color: #1976d2 none;
+}
+div::-webkit-scrollbar,
+body::-webkit-scrollbar {
+  width: 6px;
+}
+div::-webkit-scrollbar-track,
+body::-webkit-scrollbar-track {
+  width: 6px;
+}
+div::-webkit-scrollbar-thumb,
+body::-webkit-scrollbar-thumb {
+  background-color: #1976d2;
+  border-radius: 20px;
+  border: 3px solid none;
+}
+
