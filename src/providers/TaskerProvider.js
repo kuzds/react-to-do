@@ -27,14 +27,16 @@ function TaskerProvider({children}) {
   }, [])
 
   const toggleTaskById = useCallback(id => {
-    setTasks(prevTasks => prevTasks.forEach(task => {
-      if (task.id === id) 
+    setTasks(prevTasks => [...prevTasks.map(task => {
+      if (task.id === id) {
         task.completed = !task.completed
-    }))
+      } 
+      return task
+    })])
   }, [])
 
   const removeTaskById = useCallback(id => {
-    setTasks(prevTasks => prevTasks.filter(task => task.id === id))
+    setTasks(prevTasks => prevTasks.filter(task => task.id !== id))
   }, [])
 
   const contextValue = useMemo(()=>({

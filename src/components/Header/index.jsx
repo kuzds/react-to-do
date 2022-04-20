@@ -67,8 +67,8 @@ const Header = () => {
 
     const pages = auth.user ? 
     [
-        { name: 'Myday'     , onClick: () => navigate("/tasks/myday")   }, 
-        { name: 'Planned'   , onClick: () => navigate("/tasks/planned") },
+        // { name: 'Myday'     , onClick: () => navigate("/tasks/myday")   }, 
+        // { name: 'Planned'   , onClick: () => navigate("/tasks/planned") },
         { name: 'Inbox'     , onClick: () => navigate("/tasks/inbox")   },
     ] : [];
 

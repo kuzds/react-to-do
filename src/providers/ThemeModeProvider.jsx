@@ -1,4 +1,4 @@
-import { useCallback, useMemo, useState } from "react";
+import { useCallback, useMemo, useState, useEffect } from "react";
 
 import ThemeModeContext from "../contexts/ThemeModeContext";
 
@@ -9,11 +9,15 @@ import {
 } from '@mui/material';
 
 function ThemeModeProvider(props) {
-    const [mode, setMode] = useState('dark');
+    const [mode, setMode] = useState(localStorage.getItem('themeMode') || 'light')
+
+    useEffect(() => {
+      localStorage.setItem('themeMode', mode)
+    }, [mode])
 
     const toggleColorMode = useCallback(() => {
-        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
-    }, []);
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'))
+    }, [])
 
     const theme = useMemo(() =>
         createTheme({
@@ -21,7 +25,8 @@ function ThemeModeProvider(props) {
                 mode,
                 primary: {
                   // main: '#0082ff',
-                  main: '#1976d2',
+                  // main: '#1976d2',
+                  main: mode === 'dark' ? '#0AC27A' : '#0a8a57',
                 },
                 background: {
                     paper: mode === 'dark' ? '#424242' : '#fff',

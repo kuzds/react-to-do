@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useState, useRef } from "react";
 
 import { 
   Grid, 
@@ -9,8 +9,6 @@ import {
 
 import IconButton from '@mui/material/IconButton';
 
-import AddCircleOutlineRoundedIcon from '@mui/icons-material/AddCircleOutlineRounded';
-import useClickActivator from "../hooks/useClickActivator";
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import EventRepeatRoundedIcon from '@mui/icons-material/EventRepeatRounded';
@@ -20,29 +18,25 @@ import useTasker from "../hooks/useTasker";
 function TaskCreator() {
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
-  const [isActive, setIsActive] = useClickActivator(wrapperRef);
   const tasker = useTasker();
-
-  useEffect(() => {
-    if (isActive) (inputRef.current && inputRef.current.focus());
-  }, [isActive]);
+  const [description, setDescription] = useState("");
 
   const addTask = () => {
-    tasker.addTask({
-      description: inputRef.current.value
-    })
-    inputRef.current.value = '';
+    tasker.addTask({ description })
+    setDescription('');
   }
-
+  const onKeyPress = (ev) => { if (ev.key === 'Enter') addTask() }
+  const handleChange = (ev) => { setDescription(ev.target.value) }
   return (
     <Grid 
       container 
       ref={wrapperRef}
       sx={{
-        padding: theme => theme.spacing(1),
+        p: 1,
         bgcolor: "background.paper",
-        borderRadius: "4px",
-        boxShadow: "0px 2px 1px -1px rgb(0 0 0 / 20%), 0px 1px 1px 0px rgb(0 0 0 / 14%), 0px 1px 3px 0px rgb(0 0 0 / 12%)"
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.09), rgba(255, 255, 255, 0.05))",
+        borderRadius: 1,
+        boxShadow: 1,
       }}
     >
       <Grid item xs={12}>
@@ -60,40 +54,40 @@ function TaskCreator() {
             variant="outlined" 
             fullWidth
             size="small"
+            onKeyPress={onKeyPress}
+            value={description}
+            onChange={handleChange}
           />
           
         </Box>
       </Grid>
-      {
-        isActive ? (
-          <Grid item xs={12} sx={{paddingTop: theme => theme.spacing(1)}}>
-            <Box 
-              sx={{
-                display: "flex",
-                width: "100%",
-                alignItems:"center",
-              }}
-            >
-              <IconButton aria-label="menu" >
-                <CalendarMonthRoundedIcon />
-              </IconButton>
-              <IconButton aria-label="menu" >
-                <NotificationsNoneRoundedIcon />
-              </IconButton>
-              <IconButton aria-label="menu" >
-                <EventRepeatRoundedIcon />
-              </IconButton>
-              <Button 
-                sx={{marginLeft:"auto"}} 
-                variant="outlined"
-                color="inherit"
-                size="small"
-                onClick={addTask}
-              >Add</Button>
-            </Box>
-          </Grid>
-        ) : ("") 
-      }
+        <Grid item xs={12} sx={{pt:1}}>
+          <Box 
+            sx={{
+              display: "flex",
+              width: "100%",
+              alignItems: "center",
+            }}
+          >
+            <IconButton aria-label="menu" >
+              <CalendarMonthRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="menu" >
+              <NotificationsNoneRoundedIcon />
+            </IconButton>
+            <IconButton aria-label="menu" >
+              <EventRepeatRoundedIcon />
+            </IconButton>
+            <Button 
+              sx={{ml:"auto"}} 
+              variant="outlined"
+              color="inherit"
+              size="small"
+              onClick={addTask}
+              disabled={!description.length}
+            >Add</Button>
+          </Box>
+        </Grid>
     </Grid>
   );
 }
