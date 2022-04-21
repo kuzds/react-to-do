@@ -1,6 +1,7 @@
 # React ToDo
 Simple Todo with authentication and task planning.
 
+[Deployed version](https://dmitrKuznetsov.github.io/react-to-do) 
 ## API
 Authentication: http://nestjs-boilerplate-test.herokuapp.com/docs/.
 

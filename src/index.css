@@ -18,15 +18,9 @@ body {
   flex-grow: 1;
 }
 
-
-.testColors {
-    color: #563dfa;
-    color: #3c2fe9;
-}
-
 div, body {
 	scrollbar-width: thin;
-	scrollbar-color: #1976d2 none;
+	scrollbar-color: #ffe34f none;
 }
 div::-webkit-scrollbar,
 body::-webkit-scrollbar {
@@ -38,7 +32,7 @@ body::-webkit-scrollbar-track {
 }
 div::-webkit-scrollbar-thumb,
 body::-webkit-scrollbar-thumb {
-  background-color: #1976d2;
+  background-color: #ffe34f;
   border-radius: 20px;
   border: 3px solid none;
 }

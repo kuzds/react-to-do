@@ -21,6 +21,7 @@ function AppRoutes() {
   return auth.isLoaded ? (
     <Routes>
       <Route path="/" element={<Home />} />
+      <Route path="/react-to-do" element={<Home />} />
       <Route
         path="/profile"
         element={

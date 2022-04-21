@@ -24,9 +24,11 @@ function ThemeModeProvider(props) {
             palette: {
                 mode,
                 primary: {
-                  // main: '#0082ff',
-                  // main: '#1976d2',
                   main: mode === 'dark' ? '#0AC27A' : '#0a8a57',
+                },
+                secondary: {
+                  main: mode === 'dark' ? '#ffe34f' : '#ffe34f',
+                  contrastText: 'rgba(0,0,0,0.87)'
                 },
                 background: {
                     paper: mode === 'dark' ? '#424242' : '#fff',

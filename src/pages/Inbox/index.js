@@ -43,7 +43,7 @@ function Inbox() {
           xs={12} 
           sx={{
             overflowY:"scroll", 
-            maxHeight: "600px",
+            maxHeight: "60vh",
             pb: 1,
           }}
         >
