@@ -46,10 +46,7 @@ function AppRoutes() {
           </GuestRoute>
         }
       />
-      <Route
-        path="/tasks"
-        element={<Navigate to="/tasks/inbox" replace />}
-      />
+      <Route path="/tasks" element={<Navigate to="/tasks/inbox" />} />
       <Route
         path="/tasks/inbox"
         element={

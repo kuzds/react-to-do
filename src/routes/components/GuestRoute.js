@@ -6,7 +6,7 @@ function GuestRoute({ children, ...rest }) {
   const location = useLocation();
   const url = new URLSearchParams(location.search.slice(1));
 
-  return auth.user ? <Navigate to={url.get("redirect") || "/"} /> : children;
+  return auth.user ? <Navigate to={url.get("redirect") || "/tasks/inbox"} /> : children;
 }
 
 export default GuestRoute;
