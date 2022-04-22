@@ -29,7 +29,13 @@ function Inbox() {
       <Grid container spacing={1} sx={{p:2}}>
         <Grid item xs={12} sx={{display:'flex', flexDirection: 'column', alignItems: 'center'}}>
           <Typography variant="h5" gutterBottom sx={{alignItems: "center", display: "flex"}}>
-            <AssignmentIcon color="primary" sx={{ fontSize: 40, mr:1 }}/>
+            <AssignmentIcon 
+              sx={{ 
+                fontSize: 40, 
+                mr:1,
+                color: theme => theme.palette.mode === 'dark' ? 'secondary.main': 'primary.main',
+              }}
+            />
             All Tasks
           </Typography>
         </Grid>

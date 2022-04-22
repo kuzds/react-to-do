@@ -2,7 +2,6 @@ import React, { useState, useRef } from "react";
 
 import { 
   Grid, 
-  TextField,
   Button, 
   Box
 } from '@mui/material';
@@ -12,21 +11,25 @@ import IconButton from '@mui/material/IconButton';
 import CalendarMonthRoundedIcon from '@mui/icons-material/CalendarMonthRounded';
 import NotificationsNoneRoundedIcon from '@mui/icons-material/NotificationsNoneRounded';
 import EventRepeatRoundedIcon from '@mui/icons-material/EventRepeatRounded';
-
+import StyledTextField from "./StyledTextField";
 import useTasker from "../hooks/useTasker";
 
 function TaskCreator() {
   const wrapperRef = useRef(null);
   const inputRef = useRef(null);
   const tasker = useTasker();
-  const [description, setDescription] = useState("");
+  const [description, setDescription] = useState('');
 
   const addTask = () => {
     tasker.addTask({ description })
-    setDescription('');
+    setDescription('')
   }
-  const onKeyPress = (ev) => { if (ev.key === 'Enter') addTask() }
+  const onKeyPress = (ev) => { 
+    if (ev.key === 'Enter' && description.trim() !== '') 
+      addTask() 
+  }
   const handleChange = (ev) => { setDescription(ev.target.value) }
+  
   return (
     <Grid 
       container 
@@ -47,7 +50,7 @@ function TaskCreator() {
             alignItems:"center",
           }}
         >          
-          <TextField 
+          <StyledTextField 
             inputRef={inputRef}
             autoComplete='off'
             label="New task" 
@@ -84,7 +87,7 @@ function TaskCreator() {
               color="inherit"
               size="small"
               onClick={addTask}
-              disabled={!description.length}
+              disabled={description.trim() === ''}
             >Add</Button>
           </Box>
         </Grid>

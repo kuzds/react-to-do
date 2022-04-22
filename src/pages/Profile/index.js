@@ -1,12 +1,13 @@
 import { useForm, Controller } from "react-hook-form";
 import {
-  TextField,
   Grid,
   Container,
   Button,
   Typography,
   Snackbar,
 } from '@mui/material';
+import StyledTextField from "../../components/StyledTextField";
+
 import { yupResolver } from "@hookform/resolvers/yup";
 import validationSchema from "./validation";
 import api from "../../services/api";
@@ -78,7 +79,7 @@ function Profile() {
               control={control}
               defaultValue=""
               render={({ field }) => (
-                <TextField
+                <StyledTextField
                   {...field}
                   error={Boolean(errors.firstName?.message)}
                   fullWidth
@@ -96,7 +97,7 @@ function Profile() {
               control={control}
               defaultValue=""
               render={({ field }) => (
-                <TextField
+                <StyledTextField
                   {...field}
                   error={Boolean(errors.lastName?.message)}
                   fullWidth

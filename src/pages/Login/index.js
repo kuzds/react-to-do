@@ -4,9 +4,9 @@ import {
     Button,
     Typography, 
     Grid, 
-    TextField,
     Container
 } from '@mui/material';
+import StyledTextField from "../../components/StyledTextField";
 
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -14,6 +14,7 @@ import validationSchema from "./validation";
 import api from "../../services/api";
 import useAuth from "../../hooks/useAuth";
 import { Link } from "react-router-dom";
+
 
 function Login() {
     const [isLoading, setIsLoading] = useState(false); 
@@ -65,7 +66,7 @@ function Login() {
               control={control}
               defaultValue=""
               render={({ field }) => (
-                <TextField
+                <StyledTextField
                   {...field}
                   error={Boolean(errors.email?.message)}
                   fullWidth
@@ -84,7 +85,7 @@ function Login() {
               control={control}
               defaultValue=""
               render={({ field }) => (
-                <TextField
+                <StyledTextField
                   {...field}
                   error={Boolean(errors.password?.message)}
                   type="password"

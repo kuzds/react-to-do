@@ -11,6 +11,8 @@ import {
     Tooltip,
     Menu,
     MenuItem,
+    ListItemIcon,
+    ListItemText,
     IconButton,
     Avatar,
     Divider
@@ -18,69 +20,63 @@ import {
 
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import Brightness7Icon from '@mui/icons-material/Brightness7';
+import AssignmentIcon from '@mui/icons-material/Assignment';
 import GitHubIcon from '@mui/icons-material/GitHub';
-
 import { Link, useNavigate } from "react-router-dom";
 
 import useAuth from "../../hooks/useAuth";
 import useThemeMode from "../../hooks/useThemeMode";
 
-import stringAvatar from "./stringAvatar";
-
 const Header = () => {
-    const auth = useAuth();
-    const theme = useThemeMode();
-    const navigate = useNavigate();
+    const auth = useAuth()
+    const {mode, toggleColorMode} = useThemeMode()
+    const navigate = useNavigate()
 
-    const [anchorElNav, setAnchorElNav] = React.useState(null);
-    const [anchorElUser, setAnchorElUser] = React.useState(null);
+    const [anchorElNav, setAnchorElNav] = React.useState(null)
+    const [anchorElUser, setAnchorElUser] = React.useState(null)
 
     const handleOpenNavMenu = (event) => {
         setAnchorElNav(event.currentTarget);
-    };
+    }
+
     const handleOpenUserMenu = (event) => {
         setAnchorElUser(event.currentTarget);
-    };
+    }
 
     const handleCloseNavMenu = () => {
         setAnchorElNav(null);
-    };
+    }
 
     const handleCloseUserMenu = () => {
         setAnchorElUser(null);
-    };
+    }
 
     const handleSelectNavMenu = (onClick) => () => {
         setAnchorElNav(null);
         onClick();
-    };
+    }
 
     const handleSelectUserMenu = (onClick) => () => {
         setAnchorElUser(null);
         onClick();
-    };
+    }
     
     const onLogOut = () => {
         auth.logOut();
         navigate("/login");
-    };
+    }
 
-    const pages = auth.user ? 
-    [
-        // { name: 'Myday'     , onClick: () => navigate("/tasks/myday")   }, 
-        // { name: 'Planned'   , onClick: () => navigate("/tasks/planned") },
-        { name: 'Inbox'     , onClick: () => navigate("/tasks/inbox")   },
-    ] : [];
+    const pages = auth.user ? [
+      { icon: <AssignmentIcon/>, name: 'Inbox'     , onClick: () => navigate("/tasks/inbox")   },
+    ] : []
 
-    const settings = auth.user ? 
-    [
-        {name: 'Profile'     , onClick: () => navigate("/profile")}, 
-        {name: 'Logout'      , onClick: onLogOut }
-    ] :
-    [
-        {name: 'Login'       , onClick: () => navigate("/login")}, 
-        {name: 'Registration', onClick: () => navigate("/registration")}
-    ];
+    const settings = auth.user ? [
+      {name: 'Profile'     , onClick: () => navigate("/profile")}, 
+      {name: 'Logout'      , onClick: onLogOut }
+    ] : [
+      {name: 'Login'       , onClick: () => navigate("/login")}, 
+      {name: 'Registration', onClick: () => navigate("/registration")}
+    ]
 
     return (
         <AppBar position="static" sx= {{bgcolor:"primary.main"}}>
@@ -91,7 +87,7 @@ const Header = () => {
               noWrap
               component={Link}
               to="/"
-              color="inherit"
+              color="primary.contrastText"
               sx={{ mr: 2, display: { xs: 'none', md: 'flex' }, textDecoration: "none", }}
             >
               ToDo
@@ -130,39 +126,25 @@ const Header = () => {
                 }}
               >
                 {pages.map((page) => (
-                  <MenuItem key={page.name} onClick={handleSelectNavMenu(page.onClick)}>
-                    <Typography textAlign="center">{page.name}</Typography>
+                  <MenuItem key={page.name} onClick={handleSelectNavMenu(page.onClick)} >
+                    <ListItemIcon>{page.icon}</ListItemIcon>
+                    <ListItemText>{page.name}</ListItemText>
                   </MenuItem>
                 ))}
                 <Divider/>
-                <MenuItem key={"github"} onClick={handleCloseNavMenu}>
-                  <Typography 
-                    textAlign="center" 
-                    component="a"
-                    color="textPrimary"
-                    href="https://github.com/dmitrKuznetsov/react-to-do"
-                    target="_blank"
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexWrap: 'nowrap',
-                        textDecoration: "none",
-                    }}  
-                  >
-                    <GitHubIcon />&nbsp;&nbsp;GitHub
-                  </Typography>
+                <MenuItem 
+                  key={"github"} 
+                  onClick={handleCloseNavMenu} 
+                  component="a" 
+                  href="https://github.com/dmitrKuznetsov/react-to-do" 
+                  target="_blank"
+                >
+                  <ListItemIcon><GitHubIcon /></ListItemIcon>
+                  <ListItemText>GitHub</ListItemText>
                 </MenuItem>
-                <MenuItem key={"theme"} onClick={theme.toggleColorMode}>
-                  <Typography 
-                    textAlign="center" 
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        flexWrap: 'nowrap',
-                    }}  
-                  >
-                    {theme.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}&nbsp;&nbsp;Theme
-                  </Typography>
+                <MenuItem key={"theme"} onClick={toggleColorMode}>
+                  <ListItemIcon>{ mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon /> }</ListItemIcon>
+                  <ListItemText>Theme</ListItemText>
                 </MenuItem>
               </Menu>
             </Box>
@@ -181,7 +163,7 @@ const Header = () => {
                 <Button
                   key={page.name}
                   onClick={page.onClick}
-                  sx={{ my: 2, color: 'white', display: 'block' }}
+                  sx={{ my: 2, color: 'inherit', display: 'block' }}
                 >
                   {page.name}
                 </Button>
@@ -202,18 +184,20 @@ const Header = () => {
                 <IconButton 
                   size="large"
                   sx={{ ml: 1 }} 
-                  onClick={theme.toggleColorMode} 
+                  onClick={toggleColorMode} 
                   color="inherit"
                 >
-                  {theme.mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon />}
+                  { mode === 'dark' ? <Brightness4Icon /> : <Brightness7Icon /> }
                 </IconButton>
               </Box>
               <Tooltip title="Account">
               <IconButton onClick={handleOpenUserMenu} sx={{ ml: 2, p: 0 }}>
                 { auth.user ? (
-                    <Avatar {...stringAvatar(auth.user)}  sx={{bgcolor: "secondary.main", color: 'secondary.contrastText'}}/>
+                    <Avatar sx={{bgcolor: "secondary.main", color: 'secondary.contrastText'}}>
+                      {auth.user.firstName[0].toUpperCase()}{auth.user.lastName[0].toUpperCase()}
+                    </Avatar>
                   ) : (
-                    <Avatar />
+                    <Avatar sx={{bgcolor:"inherit", color:"primary.contrastText"}}/>
                   )
                 }
               </IconButton>
@@ -253,4 +237,4 @@ const Header = () => {
 };
 
 
-export default Header;
+export default Header
