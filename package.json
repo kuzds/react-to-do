@@ -1,7 +1,7 @@
 {
   "name": "react-to-do",
   "version": "1.0.0",
-  "homepage": "https://dmitrKuznetsov.github.io/react-to-do",
+  "homepage": "https://kuzds.github.io/react-to-do/",
   "private": true,
   "dependencies": {
     "@emotion/babel-plugin": "^11.7.2",

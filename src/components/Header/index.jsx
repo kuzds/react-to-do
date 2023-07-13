@@ -136,7 +136,7 @@ const Header = () => {
                   key={"github"} 
                   onClick={handleCloseNavMenu} 
                   component="a" 
-                  href="https://github.com/dmitrKuznetsov/react-to-do" 
+                  href="https://github.com/kuzds/react-to-do"
                   target="_blank"
                 >
                   <ListItemIcon><GitHubIcon /></ListItemIcon>
@@ -174,7 +174,7 @@ const Header = () => {
               <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
                 <IconButton
                   size="large"
-                    href="https://github.com/dmitrKuznetsov/react-to-do"
+                    href="https://github.com/kuzds/react-to-do"
                     target="_blank"
                     color="inherit"
                 >
